@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Hello bash script!!!" > /home/ubuntu/test.txt
+echo "Hello instance!!!" > /home/${USER}/test.txt
