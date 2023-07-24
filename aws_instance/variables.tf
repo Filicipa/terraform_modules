@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "azs" {
-  type        = string
+  type        = list(string)
   description = "Availability Zones list"
   default     = ""
 }

@@ -1,10 +1,10 @@
 module "vpc-terraform" {
-  source             = "git@github.com:filicipa/terraform_modules.git//aws_vpc"
-  azs                = data.aws_availability_zones.available.name[count.index]
-  cidr_vpc           = var.cidr_vpc
-  public_subnet_cidr = var.public_subnet_cidrs
-  proj_name          = var.proj_name
-  env                = var.env
+  source              = "git@github.com:filicipa/terraform_modules.git//aws_vpc"
+  azs                 = data.aws_availability_zones.available.names
+  cidr_vpc            = var.cidr_vpc
+  public_subnet_cidrs = var.public_subnet_cidrs
+  proj_name           = var.proj_name
+  env                 = var.env
 }
 
 module "test_server" {
