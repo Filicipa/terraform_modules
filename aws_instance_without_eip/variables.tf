@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "azs" {
-  type        = list(string)
+  type        = string
   description = "Availability Zones list"
 }
 
