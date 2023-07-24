@@ -5,7 +5,6 @@ variable "region" {
 variable "azs" {
   type        = list(string)
   description = "Availability Zones list"
-  default     = ""
 }
 
 variable "ssh_key" {
