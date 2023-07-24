@@ -1,5 +1,5 @@
 module "vpc-terraform" {
-  source              = "https://github.com/Filicipa/terraform_modules.git//aws_vpc"
+  source              = "git@github.com:Filicipa/terraform_modules.git//aws_vpc"
   azs                 = data.aws_availability_zones.available.names
   cidr_vpc            = var.cidr_vpc
   public_subnet_cidrs = var.public_subnet_cidrs
@@ -8,7 +8,7 @@ module "vpc-terraform" {
 }
 
 module "test_server" {
-  source           = "https://github.com/Filicipa/terraform_modules.git//aws_instance"
+  source           = "git@github.com:Filicipa/terraform_modules.git//aws_instance"
   depends_on       = [module.vpc-terraform]
   ami              = data.aws_ami.ubuntu_server.id
   azs              = element(data.aws_availability_zones.available.names, 0)
@@ -34,7 +34,7 @@ module "test_server" {
 }
 
 module "ebs_volume" {
-  source      = "https://github.com/Filicipa/terraform_modules.git//aws_ebs"
+  source      = "git@github.com:Filicipa/terraform_modules.git//aws_ebs"
   azs         = element(data.aws_availability_zones.available.names, 0)
   size        = 10
   type        = "gp3"
