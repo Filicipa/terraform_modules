@@ -12,8 +12,8 @@ resource "aws_subnet" "public_subnets" {
   vpc_id                  = aws_vpc.main.id
   count                   = length(var.public_subnet_cidrs)
   cidr_block              = element(var.public_subnet_cidrs, count.index)
+  availability_zone       = element(var.azs, count.index)
   map_public_ip_on_launch = true
-  availability_zone       = var.azs
   tags = {
     Name        = "${var.proj_name}_${var.env}_${count.index + 1}"
     Project     = var.proj_name,

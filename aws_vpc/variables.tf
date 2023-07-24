@@ -5,9 +5,8 @@ variable "region" {
 }
 
 variable "azs" {
-  type        = string
+  type        = list(string)
   description = "Availability Zones list"
-  default     = ""
 }
 
 variable "cidr_vpc" {
@@ -16,10 +15,9 @@ variable "cidr_vpc" {
   default     = ""
 }
 
-variable "public_subnet_cidr" {
-  type        = string
+variable "public_subnet_cidrs" {
+  type        = list(string)
   description = "Public Subnet CIDR values"
-  default     = ""
 }
 
 variable "env" {
