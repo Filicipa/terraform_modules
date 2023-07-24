@@ -11,7 +11,7 @@ module "test_server" {
   source           = "git@github.com:filicipa/terraform_modules.git//aws_instance"
   depends_on       = [module.vpc-terraform]
   ami              = data.aws_ami.ubuntu_server.id
-  azs              = data.aws_availability_zones.available.name[count.index]
+  azs              = element(data.aws_availability_zones.available.names, 0)
   instance_type    = "t2.micro"
   root_block_size  = 10
   root_volume_type = "gp3"
@@ -24,7 +24,7 @@ module "test_server" {
   end_tcp_ports    = []
   start_udp_ports  = []
   end_udp_ports    = []
-  subnet_id        = module.vpc-terraform.public_subnet_id
+  subnet_id        = element(module.vpc-terraform.public_subnet_ids, 0)
   ssh_key          = var.ssh_key
   user_data        = file("test.sh")
 
@@ -35,7 +35,7 @@ module "test_server" {
 
 module "ebs_volume" {
   source      = "git@github.com:filatov0120/terraform_modules.git//aws_ebs"
-  azs         = var.azs
+  azs         = element(data.aws_availability_zones.available.names, 0)
   size        = 10
   type        = "gp3"
   instance_id = module.test_server.instance_id
