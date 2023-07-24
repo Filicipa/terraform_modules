@@ -28,9 +28,9 @@ module "test_server" {
   ssh_key          = var.ssh_key
   user_data        = file("test.sh")
 
-  proj_name        = var.proj_name
-  env              = var.env
-  instance_name    = var.inst1_name
+  proj_name     = var.proj_name
+  env           = var.env
+  instance_name = var.inst1_name
 }
 
 module "ebs_volume" {
@@ -41,5 +41,6 @@ module "ebs_volume" {
   instance_id = module.test_server.instance_id
   proj_name   = var.proj_name
   env         = var.env
+  device_path = "/dev/sdh"
 }
 
