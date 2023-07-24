@@ -30,7 +30,7 @@ module "test_server" {
 
   proj_name        = var.proj_name
   env              = var.env
-  instance_name    = var.instance_name
+  instance_name    = var.inst1_name
 }
 
 module "ebs_volume" {
