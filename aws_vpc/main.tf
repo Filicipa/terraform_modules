@@ -8,19 +8,6 @@ resource "aws_vpc" "main" {
   }
 }
 
-resource "aws_subnet" "public_subnets" {
-  vpc_id                  = aws_vpc.main.id
-  count                   = length(var.public_subnet_cidrs)
-  cidr_block              = element(var.public_subnet_cidrs, count.index)
-  availability_zone       = element(var.azs, count.index)
-  map_public_ip_on_launch = true
-  tags = {
-    Name        = "${var.proj_name}_${var.env}_${count.index + 1}"
-    Project     = var.proj_name,
-    Environment = var.env
-  }
-}
-
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
   tags = {
@@ -39,6 +26,19 @@ resource "aws_route_table" "igw_rt" {
 
   tags = {
     Name        = "${var.proj_name}_${var.env}-public"
+    Project     = var.proj_name,
+    Environment = var.env
+  }
+}
+
+resource "aws_subnet" "public_subnets" {
+  vpc_id                  = aws_vpc.main.id
+  count                   = length(var.public_subnet_cidrs)
+  cidr_block              = element(var.public_subnet_cidrs, count.index)
+  availability_zone       = element(var.azs, count.index)
+  map_public_ip_on_launch = true
+  tags = {
+    Name        = "${var.proj_name}_${var.env}_${count.index + 1}"
     Project     = var.proj_name,
     Environment = var.env
   }
