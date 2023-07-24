@@ -34,7 +34,7 @@ module "test_server" {
 }
 
 module "ebs_volume" {
-  source      = "git@github.com:filatov0120/terraform_modules.git//aws_ebs"
+  source      = "git@github.com:filicipa/terraform_modules.git//aws_ebs"
   azs         = element(data.aws_availability_zones.available.names, 0)
   size        = 10
   type        = "gp3"
