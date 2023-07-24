@@ -1,6 +1,6 @@
 resource "aws_vpc" "main" {
   cidr_block           = var.cidr_vpc
-  enable_dns_hostnames = true
+  enable_dns_hostnames = false
   tags = {
     Name        = "${var.proj_name}_${var.env}"
     Project     = var.proj_name,
@@ -8,12 +8,14 @@ resource "aws_vpc" "main" {
   }
 }
 
-resource "aws_subnet" "public_subnet" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = var.public_subnet_cidr
-  availability_zone = var.azs
+resource "aws_subnet" "public_subnets" {
+  vpc_id                  = aws_vpc.main.id
+  count                   = length(var.public_subnet_cidrs)
+  cidr_block              = element(var.public_subnet_cidrs, count.index)
+  map_public_ip_on_launch = true
+  availability_zone       = var.azs
   tags = {
-    Name        = "${var.proj_name}_${var.env}"
+    Name        = "${var.proj_name}_${var.env}_${count.index + 1}"
     Project     = var.proj_name,
     Environment = var.env
   }
@@ -36,13 +38,14 @@ resource "aws_route_table" "igw_rt" {
   }
 
   tags = {
-    Name        = "${var.proj_name}_${var.env}"
+    Name        = "${var.proj_name}_${var.env}-public"
     Project     = var.proj_name,
     Environment = var.env
   }
 }
 
-resource "aws_route_table_association" "subnet_assosiate" {
-  subnet_id      = aws_subnet.public_subnet.id
+resource "aws_route_table_association" "public_routes" {
+  count          = length(aws_subnet.public_subnets[*].id)
+  subnet_id      = element(aws_subnet.public_subnets[*].id, count.index)
   route_table_id = aws_route_table.igw_rt.id
 }

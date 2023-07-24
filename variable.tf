@@ -4,11 +4,11 @@ variable "region" {
   default     = "eu-central-1"
 }
 
-variable "azs" {
-  type        = string
-  description = "Availability Zones list"
-  default     = "eu-central-1a"
-}
+# variable "azs" {
+#   type        = string
+#   description = "Availability Zones list"
+#   default     = "eu-central-1a"
+# }
 
 variable "ami_ubuntu_22_04" {
   description = "ami_ubuntu_22.04"
@@ -21,9 +21,11 @@ variable "cidr_vpc" {
   default     = "192.168.0.0/16"
 }
 
-variable "public_subnet_cidr" {
-  description = "Public subnet CIDR"
-  default     = "192.168.11.0/24"
+variable "public_subnet_cidrs" {
+  description = "Public subnet CIDRs"
+  default     = [
+    "192.168.11.0/24"
+    ]
 }
 
 variable "ssh_key" {

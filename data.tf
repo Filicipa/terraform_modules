@@ -11,3 +11,5 @@ data "aws_ami" "ubuntu_server" {
     values = ["hvm"]
   }
 }
+
+data "aws_availability_zones" "available" {}
