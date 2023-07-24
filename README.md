@@ -7,4 +7,4 @@
 - EBS volume
 - VPC and subnet
 
-I added bash scripts for install docker and mongoDB via "user_data"
+Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for t3.* instances via "user_data"
