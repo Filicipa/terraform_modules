@@ -1,4 +1,4 @@
-# Terraform modules and example terraform files for that modules 
+# Terraform modules and example user_data files
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/Filicipa/terraform_modules)
 <br>
 
