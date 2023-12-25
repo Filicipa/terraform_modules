@@ -2,7 +2,7 @@ name: Generate terraform READme
 on:
     push:
       branches:
-        - master
+        - main
 jobs:
     docs:
         runs-on: ubuntu-latest
