@@ -1,6 +1,4 @@
-# Terraform modules and example user_data files
-![GitHub release (with filter)](https://img.shields.io/github/v/release/Filicipa/terraform_modules)
-<br>
+# Terraform modules ![GitHub release (with filter)](https://img.shields.io/github/v/release/Filicipa/terraform_modules)
 
 - EC2 instance with security group and with EIP 
 - EC2 instance with security group and without EIP
