@@ -17,18 +17,21 @@ resource "aws_instance" "this" {
   }
 
   tags = {
-    Name        = "${var.proj_name}_${var.env}_${var.instance_name}"
-    Project     = var.proj_name,
+    Name        = "${var.project_name}-${var.env}-${var.instance_name}"
+    Project     = var.project_name,
     Environment = var.env
+    Terraform   = true
   }
 }
 
 resource "aws_eip" "this" {
   instance = aws_instance.this.id
+  domain   = "vpc"
 
   tags = {
-    Name        = "${var.proj_name}_${var.env}_${var.instance_name}"
-    Project     = var.proj_name,
+    Name        = "${var.instance_name}-EIP"
+    Project     = var.project_name,
     Environment = var.env
+    Terraform   = true
   }
 }

@@ -4,9 +4,10 @@ resource "aws_ebs_volume" "this" {
   type              = var.type
 
   tags = {
-    Name        = "${var.proj_name}_${var.env}_${var.instance_name}"
-    Project     = var.proj_name,
+    Name        = "${var.project_name}-${var.env}-${var.instance_name}-ebs"
+    Project     = var.project_name
     Environment = var.env
+    Terraform   = true
   }
 }
 

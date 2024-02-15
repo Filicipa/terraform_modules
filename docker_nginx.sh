@@ -1,6 +1,7 @@
 #!/bin/bash
-#Install docker
+# Install docker
 sudo apt-get update
+sudo apt-get upgrade -y
 sudo apt-get install -y ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -12,8 +13,8 @@ echo \
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker ubuntu
-#Install NGINX
+# Install NGINX
 sudo apt install -y curl gnupg2 ca-certificates lsb-release ubuntu-keyring
 sudo apt install -y nginx
-sudo apt-get upgrade -y
+# Reload
 sudo shutdown -r now

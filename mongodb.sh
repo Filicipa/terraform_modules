@@ -1,5 +1,5 @@
 #!/bin/bash
-#Install monogoDB
+# Install monogoDB
 sudo apt-get install -y gnupg
 curl -fsSL https://pgp.mongodb.com/server-6.0.asc | \
    sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg \
@@ -11,5 +11,5 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gp
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo systemctl enable mongod.service
-#Reboot instance
+# Reboot instance
 sudo shutdown -r now

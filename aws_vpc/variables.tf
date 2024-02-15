@@ -1,7 +1,7 @@
 variable "region" {
   description = "AWS region"
   type        = string
-  default     = ""
+  default     = "eu-central-1"
 }
 
 variable "azs" {
@@ -9,10 +9,24 @@ variable "azs" {
   description = "Availability Zones list"
 }
 
+variable "env" {
+  description = "Name of env"
+  type        = string
+}
+
+variable "project_name" {
+  description = "Name of project"
+  type        = string
+
+  validation {
+    condition     = length(var.project_name) > 3
+    error_message = "The project_name value must be set and more than 3 symbols."
+  }
+}
+
 variable "cidr_vpc" {
   description = "CIDR block for VPC"
   type        = string
-  default     = ""
 }
 
 variable "public_subnet_cidrs" {
@@ -20,14 +34,13 @@ variable "public_subnet_cidrs" {
   description = "Public Subnet CIDR values"
 }
 
-variable "env" {
-  description = "Env name"
-  type        = string
-  default     = ""
+variable "private_subnet_cidrs" {
+  type        = list(string)
+  description = "Private Subnet CIDR values"
 }
 
-variable "proj_name" {
-  description = "Project name"
-  type        = string
-  default     = ""
+variable "nat_create" {
+  description = "Is create a NAT Gateway?"
+  type        = bool
+  default     = false
 }

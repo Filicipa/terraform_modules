@@ -1,0 +1,13 @@
+#### General vars
+region       = "eu-central-1"
+project_name = "new-vpc"
+env          = "test"
+#### VPC vars
+nat_create = "false"
+
+#### RDS vars
+db_port             = "5432" #for postgres
+db_name             = "postgres"
+username            = "master"
+password            = "master123"
+skip_final_snapshot = true
