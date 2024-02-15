@@ -1,12 +1,7 @@
 resource "aws_security_group" "this" {
-  description = "Security Group for instance"
-  vpc_id      = var.vpc_id
-
-  tags = {
-    Name        = "${var.proj_name}_${var.env}_${var.instance_name}"
-    Project     = var.proj_name,
-    Environment = var.env
-  }
+  # description = "Security Group for instance"
+  name   = "${var.project_name}-${var.env}-${var.instance_name}"
+  vpc_id = var.vpc_id
 }
 
 resource "aws_security_group_rule" "access_tcp_from_internet" {

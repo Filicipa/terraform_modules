@@ -1,5 +1,7 @@
 variable "region" {
-  default = ""
+  description = "AWS Region"
+  type        = string
+  default     = "eu-central-1"
 }
 
 variable "azs" {
@@ -17,10 +19,18 @@ variable "ami" {
   type        = string
 }
 
+variable "instance_name" {
+  description = "My instance's name"
+  type        = string
+}
+
 variable "instance_type" {
   description = "My instance's type"
   type        = string
-  default     = ""
+  validation {
+    condition     = length(var.instance_type) > 0
+    error_message = "The project_name value must be."
+  }
 }
 
 variable "root_block_size" {
@@ -32,7 +42,7 @@ variable "root_block_size" {
 variable "root_volume_type" {
   description = "Storage type"
   type        = string
-  default     = "gp2"
+  default     = "gp3"
 }
 
 variable "instance_profile" {
@@ -42,70 +52,63 @@ variable "instance_profile" {
 
 variable "vpc_id" {
   description = "VPC for instance"
+  type        = string
 }
 
 variable "cidr_vpc" {
   description = "VPC_cidr_block"
+  type        = string
 }
 
 variable "subnet_id" {
   description = "Subnet ID for instance"
+  type        = string
 }
 
 variable "allow_tcp_ports" {
   description = "List of ports to open for server"
-  type        = list(any)
-  default     = []
+  type        = list(string)
 }
 
 variable "allow_udp_ports" {
   description = "List of ports to open for server"
-  type        = list(any)
-  default     = []
+  type        = list(string)
 }
 
 variable "start_tcp_ports" {
   description = "List of ports to open for server"
-  type        = list(any)
-  default     = []
+  type        = list(string)
 }
 
 variable "end_tcp_ports" {
   description = "List of ports to open for server"
-  type        = list(any)
-  default     = []
+  type        = list(string)
 }
 
 variable "start_udp_ports" {
   description = "List of ports to open for server"
-  type        = list(any)
-  default     = []
+  type        = list(string)
 }
 
 variable "end_udp_ports" {
   description = "List of ports to open for server"
-  type        = list(any)
-  default     = []
+  type        = list(string)
 }
 
-variable "instance_name" {
-  description = "Name of instance"
+variable "project_name" {
+  description = "Project name"
   type        = string
-  default     = ""
+  validation {
+    condition     = length(var.project_name) > 3
+    error_message = "The project_name value must be set and more than 3 symbols."
+  }
 }
 
 variable "env" {
-  description = "Name of env"
+  description = "env"
   type        = string
-  default     = ""
-}
-
-variable "proj_name" {
-  description = "Name of project"
-  type        = string
-  default     = ""
 }
 
 variable "user_data" {
-  description = "Used data script for instance"
+  description = "User data for instance"
 }
