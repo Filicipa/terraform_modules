@@ -22,3 +22,28 @@ output "DNS_backend_server" {
   description = "DNS for backend_server"
   value       = module.test_server.instance_public_url_eip
 }
+
+output "ecr_url" {
+  description = "The URL of the repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName)"
+  value       = data.terraform_remote_state.shared.outputs.ecr_url
+}
+
+output "alb_dns" {
+  description = "The DNS name of the load balancer"
+  value       = module.load_balancer.lb_dns
+}
+
+output "amplify_default_domain" {
+  description = "Default domain for the Amplify app"
+  value       = module.amplify.frontend_default_domain
+}
+
+output "weway_amplify_verification_dns_record" {
+  description = "The DNS record for certificate verification"
+  value       = module.amplify.frontend_certificate_verification_dns_record
+}
+
+output "amplify_cloud_front_dns_record" {
+  description = "DNS record for the subdomain"
+  value       = module.amplify.cloudfront_dns_record
+}
