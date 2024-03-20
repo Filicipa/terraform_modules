@@ -23,11 +23,11 @@ variable "subnet_ids" {
   type = list(string)
 }
 
-variable "lb_name" {
+variable "loadbalancer_name" {
   type = string
 }
 
-variable "load_balancer_type" {
+variable "loadbalancer_type" {
   description = "Possible values are application, gateway, or network"
   type        = string
   default     = "application"

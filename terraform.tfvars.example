@@ -27,6 +27,7 @@ iam_user = "iam_user"
 
 #### Load Balancer
 loadbalancer_name  = "example-backend"
+loadbalancer_type  = "application"
 target_group_name  = "test-target-group"
 target_type        = "ip"
 health_check_path  = "/api/health"

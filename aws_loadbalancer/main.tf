@@ -1,7 +1,7 @@
 resource "aws_lb" "this" {
-  name               = var.lb_name
+  name               = var.loadbalancer_name
   internal           = var.internal
-  load_balancer_type = var.load_balancer_type
+  load_balancer_type = var.loadbalancer_type
   security_groups    = [aws_security_group.this.id]
   subnets            = var.subnet_ids
 

@@ -1,7 +1,7 @@
 module "load_balancer" {
-  source             = "./aws_load_balancer"
-  lb_name            = var.loadbalancer_name
-  load_balancer_type = var.load_balancer_type
+  source             = "./aws_loadbalancer"
+  loadbalancer_name  = var.loadbalancer_name
+  loadbalancer_type  = var.loadbalancer_type
   internal           = false
   subnet_ids         = data.terraform_remote_state.shared.outputs.public_subnet_ids
   listener_protocol  = "HTTPS"
