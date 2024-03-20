@@ -1,9 +1,18 @@
 # Terraform modules ![GitHub release (with filter)](https://img.shields.io/github/v/release/Filicipa/terraform_modules)
 
-- EC2 instance with security group and with EIP 
-- EC2 instance with security group and without EIP
-- EBS volume
-- VPC and subnet
+1. EC2 instance with security group and with EIP 
+2. EC2 instance with security group and without EIP
+3. EBS volume
+4. VPC and subnets
+5. Amplify
+6. ECS cluster
+7. ECS task definition
+8. ECS service
+9. IAM user
+10. ECR registry
+11. ACM (Certificate manager)
+12. RDS
+13. Load Balancer with target group
 
 Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for t3.* instances via "user_data"
 
