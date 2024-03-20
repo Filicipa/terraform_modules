@@ -38,7 +38,7 @@ output "amplify_default_domain" {
   value       = module.amplify.frontend_default_domain
 }
 
-output "weway_amplify_verification_dns_record" {
+output "amplify_verification_dns_record" {
   description = "The DNS record for certificate verification"
   value       = module.amplify.frontend_certificate_verification_dns_record
 }
