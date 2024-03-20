@@ -1,0 +1,20 @@
+module "load_balancer" {
+  source             = "git@github.com:Filicipa/terraform_modules.git//aws_loadbalancer?ref=v1.3.0"
+  loadbalancer_name  = var.loadbalancer_name
+  loadbalancer_type  = var.loadbalancer_type
+  internal           = false
+  subnet_ids         = data.terraform_remote_state.shared.outputs.public_subnet_ids
+  listener_protocol  = "HTTPS"
+  listener_port      = 443
+  tg_protocol        = "HTTP"
+  target_type        = var.target_type
+  target_group_name  = var.target_group_name
+  vpc_id             = data.terraform_remote_state.shared.outputs.vpc_id
+  health_check_path  = var.health_check_path
+  project_name       = var.project_name
+  env                = var.env
+  certificate_arn    = data.terraform_remote_state.shared.outputs.acm_certificate_arn
+  cidr_vpc           = "0.0.0.0"
+  sg_allow_tcp_ports = var.sg_allow_tcp_ports
+  tg_port            = 80
+}

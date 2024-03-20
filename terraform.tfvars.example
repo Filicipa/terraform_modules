@@ -2,6 +2,7 @@
 region       = "eu-central-1"
 project_name = "new-vpc"
 env          = "test"
+
 #### VPC vars
 nat_create = "false"
 
@@ -11,3 +12,80 @@ db_name             = "postgres"
 username            = "master"
 password            = "master123"
 skip_final_snapshot = true
+
+#### ACM vars
+backend_domain_name = "*.example.com"
+validation_method   = "DNS"
+
+#### ECR vars
+ecr_repository_name  = "backend"
+image_tag_mutability = "MUTABLE"
+force_delete         = false
+
+#### IAM
+iam_user = "iam_user"
+
+#### Load Balancer
+loadbalancer_name  = "example-backend"
+loadbalancer_type  = "application"
+target_group_name  = "test-target-group"
+target_type        = "ip"
+health_check_path  = "/api/health"
+sg_allow_tcp_ports = [80, 443]
+
+#### AMPLIFY
+access_token         = "your github access token"
+github_repository    = "https://github.com/example_repo/example_app"
+app_name             = "frontend"
+branch_name          = "develop"
+stage                = "PRODUCTION"
+framework            = "Next.js - SSR"
+frontend_domain_name = "example.com"
+dns_prefix_branch    = ""
+frontend_environment_variables = {
+  "_CUSTOM_IMAGE"           = "amplify:al2023"
+  "_LIVE_UPDATES"           = "[{\"pkg\":\"node\",\"type\":\"nvm\",\"version\":\"18.19.0\"}]"
+  "NEXT_PUBLIC_ENVIRONMENT" = "DEVNET"
+}
+
+build_spec = <<-EOT
+  version: 1
+  frontend:
+    phases:
+      preBuild:
+        commands:
+          - npm i -g pnpm
+          - pnpm i --frozen-lockfile
+      build:
+        commands:
+          - pnpm build
+    artifacts:
+      baseDirectory: .next
+      files:
+        - '**/*'
+    cache:
+      paths:
+        - node_modules/**/*
+EOT
+
+custom_rules = [
+  {
+    source    = "/<*>"
+    status    = "404-200"
+    target    = "/index.html"
+    condition = null
+  }
+]
+
+#### ECS task definition
+task_name = "example-backend"
+backend_environment_variables = {
+  HOST = "0.0.0.0"
+  PORT = "80"
+}
+cpu    = 512
+memory = 1024
+
+#### ECS service
+service_name  = "example-backend"
+desired_count = 1

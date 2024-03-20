@@ -15,3 +15,12 @@ data "aws_ami" "ubuntu_server" {
 data "aws_availability_zones" "available" {
   state = "available"
 }
+
+data "terraform_remote_state" "shared" {
+  backend = "s3"
+  config = {
+    bucket = "example-tfstate"
+    key    = "prod"
+    region = "eu-central-1"
+  }
+}
