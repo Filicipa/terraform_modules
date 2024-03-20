@@ -1,5 +1,5 @@
 module "ecs-service" {
-  source                  = "./aws_ecs_service"
+  source                  = "git@github.com:Filicipa/terraform_modules.git//aws_ecs_service?ref=v1.3.0"
   project_name            = var.project_name
   env                     = var.env
   name                    = var.service_name
