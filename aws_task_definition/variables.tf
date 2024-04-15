@@ -1,3 +1,19 @@
+variable "region" {
+  description = "AWS region"
+  type        = string
+}
+
+variable "ecs_task_execution_role" {
+  description = "Ecs task execution role ARN"
+  type        = string
+}
+
+variable "task_role_arn" {
+  description = "Role allow to make calls to other AWS services."
+  type        = string
+  default     = ""
+}
+
 variable "image" {
   type = string
 }

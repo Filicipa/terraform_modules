@@ -47,3 +47,7 @@ output "amplify_cloud_front_dns_record" {
   description = "DNS record for the subdomain"
   value       = module.amplify.cloudfront_dns_record
 }
+
+output "iam_role_arn" {
+  value = module.iam_role.iam_role_arn
+}

@@ -89,3 +89,6 @@ memory = 1024
 #### ECS service
 service_name  = "example-backend"
 desired_count = 1
+
+#### IAM Role
+iam_role_name = "name"

@@ -1,6 +1,7 @@
 resource "aws_ecs_task_definition" "this" {
   family                   = var.task_name
-  execution_role_arn       = data.aws_iam_role.ecs_task_execution_role.arn
+  task_role_arn            = var.task_role_arn
+  execution_role_arn       = var.ecs_task_execution_role
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = var.cpu
@@ -8,7 +9,7 @@ resource "aws_ecs_task_definition" "this" {
   container_definitions = jsonencode([
     {
       name      = var.task_name
-      image     = "${var.image}:latest",
+      image     = "${var.image}",
       essential = true
       portMappings = [
         {
@@ -25,14 +26,18 @@ resource "aws_ecs_task_definition" "this" {
           value = value
         }
       ],
+      "mountPoints" : [],
+      "volumesFrom" : [],
+      "ulimits" : [],
       logConfiguration = {
         logDriver = "awslogs",
         options = {
           awslogs-create-group  = "true",
-          awslogs-group         = "/ecs/weway-backend",
-          awslogs-region        = "eu-central-1",
+          awslogs-group         = "/ecs/${var.task_name}",
+          awslogs-region        = var.region,
           awslogs-stream-prefix = "ecs"
         },
+        "secretOptions" : []
       },
     }
   ])
