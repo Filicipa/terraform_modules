@@ -39,6 +39,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="module_ebs_volume"></a> [ebs\_volume](#module\_ebs\_volume) | git@github.com:Filicipa/terraform_modules.git//aws_ebs | v1.3.0 |
 | <a name="module_ecs-service"></a> [ecs-service](#module\_ecs-service) | git@github.com:Filicipa/terraform_modules.git//aws_ecs_service | v1.3.0 |
 | <a name="module_ecs-weway-cluster"></a> [ecs-weway-cluster](#module\_ecs-weway-cluster) | git@github.com:Filicipa/terraform_modules.git//aws_inctance | v1.3.0 |
+| <a name="module_iam_role"></a> [iam\_role](#module\_iam\_role) | git@github.com:Filicipa/terraform_modules.git//aws_iam_role | v1.3.0 |
 | <a name="module_iam_user"></a> [iam\_user](#module\_iam\_user) | git@github.com:Filicipa/terraform_modules.git//aws_iam_user | v1.3.0 |
 | <a name="module_load_balancer"></a> [load\_balancer](#module\_load\_balancer) | git@github.com:Filicipa/terraform_modules.git//aws_loadbalancer | v1.3.0 |
 | <a name="module_rds_postgres"></a> [rds\_postgres](#module\_rds\_postgres) | git@github.com:Filicipa/terraform_modules.git//aws_rds | v1.3.0 |
@@ -87,6 +88,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="input_frontend_environment_variables"></a> [frontend\_environment\_variables](#input\_frontend\_environment\_variables) | n/a | `map(string)` | n/a | yes |
 | <a name="input_github_repository"></a> [github\_repository](#input\_github\_repository) | GitHub repositoty URL | `string` | n/a | yes |
 | <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | n/a | `string` | n/a | yes |
+| <a name="input_iam_role_name"></a> [iam\_role\_name](#input\_iam\_role\_name) | IAM role name | `string` | n/a | yes |
 | <a name="input_iam_user"></a> [iam\_user](#input\_iam\_user) | IAM user name | `string` | n/a | yes |
 | <a name="input_image_tag_mutability"></a> [image\_tag\_mutability](#input\_image\_tag\_mutability) | n/a | `string` | n/a | yes |
 | <a name="input_inst1_name"></a> [inst1\_name](#input\_inst1\_name) | Name for instances | `string` | `"test"` | no |
@@ -132,6 +134,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="output_amplify_default_domain"></a> [amplify\_default\_domain](#output\_amplify\_default\_domain) | Default domain for the Amplify app |
 | <a name="output_amplify_verification_dns_record"></a> [amplify\_verification\_dns\_record](#output\_amplify\_verification\_dns\_record) | The DNS record for certificate verification |
 | <a name="output_ecr_url"></a> [ecr\_url](#output\_ecr\_url) | The URL of the repository (in the form aws\_account\_id.dkr.ecr.region.amazonaws.com/repositoryName) |
+| <a name="output_iam_role_arn"></a> [iam\_role\_arn](#output\_iam\_role\_arn) | n/a |
 | <a name="output_public_subnet_ids"></a> [public\_subnet\_ids](#output\_public\_subnet\_ids) | Prublic subnet IDs |
 | <a name="output_vpc_cidr"></a> [vpc\_cidr](#output\_vpc\_cidr) | VPC CIDR |
 | <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | VPC id |
