@@ -15,7 +15,7 @@ resource "aws_iam_role" "this" {
   })
 
   tags = {
-    Name        = "${var.project_name}-${var.env}-role"
+    Name        = "${var.project_name}-${var.env}-${var.role_name}"
     Project     = var.project_name
     Environment = var.env
     Terraform   = true
