@@ -9,10 +9,11 @@
 7. ECS task definition
 8. ECS service
 9. IAM user
-10. ECR registry
-11. ACM (Certificate manager)
-12. RDS
-13. Load Balancer with target group
+10. IAM role
+11. ECR registry
+12. ACM (Certificate manager)
+13. RDS
+14. Load Balancer with target group
 
 Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for t3.* instances via "user_data"
 
