@@ -2,6 +2,17 @@ resource "aws_security_group" "this" {
   # description = "Security Group for instance"
   name   = "${var.project_name}-${var.env}-${var.instance_name}"
   vpc_id = var.vpc_id
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  tags = {
+    Name        = "${var.project_name}-${var.env}-sg"
+    Project     = var.project_name,
+    Environment = var.env
+    Terraform   = true
+  }
 }
 
 resource "aws_security_group_rule" "access_tcp_from_internet" {

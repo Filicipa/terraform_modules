@@ -3,6 +3,10 @@ resource "aws_security_group" "this" {
   name   = "${var.project_name}-${var.env}-ecs-container"
   vpc_id = var.vpc_id
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
   tags = {
     Name        = "${var.project_name}-${var.env}-sg"
     Project     = var.project_name,
