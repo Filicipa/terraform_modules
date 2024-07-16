@@ -40,6 +40,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="module_ebs_volume"></a> [ebs\_volume](#module\_ebs\_volume) | git@github.com:Filicipa/terraform_modules.git//aws_ebs | v1.3.0 |
 | <a name="module_ecs-service"></a> [ecs-service](#module\_ecs-service) | git@github.com:Filicipa/terraform_modules.git//aws_ecs_service | v1.3.0 |
 | <a name="module_ecs-weway-cluster"></a> [ecs-weway-cluster](#module\_ecs-weway-cluster) | git@github.com:Filicipa/terraform_modules.git//aws_inctance | v1.3.0 |
+| <a name="module_elasticache"></a> [elasticache](#module\_elasticache) | git@github.com:Filicipa/terraform_modules.git//aws_elasticache | v1.4.0 |
 | <a name="module_iam_role"></a> [iam\_role](#module\_iam\_role) | git@github.com:Filicipa/terraform_modules.git//aws_iam_role | v1.3.0 |
 | <a name="module_iam_user"></a> [iam\_user](#module\_iam\_user) | git@github.com:Filicipa/terraform_modules.git//aws_iam_user | v1.3.0 |
 | <a name="module_load_balancer"></a> [load\_balancer](#module\_load\_balancer) | git@github.com:Filicipa/terraform_modules.git//aws_loadbalancer | v1.3.0 |
@@ -71,6 +72,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="input_branch_name"></a> [branch\_name](#input\_branch\_name) | n/a | `string` | n/a | yes |
 | <a name="input_build_spec"></a> [build\_spec](#input\_build\_spec) | n/a | `string` | n/a | yes |
 | <a name="input_cidr_vpc"></a> [cidr\_vpc](#input\_cidr\_vpc) | CIDR block for VPC | `string` | `"192.168.0.0/16"` | no |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Created cluster name | `string` | n/a | yes |
 | <a name="input_cpu"></a> [cpu](#input\_cpu) | n/a | `number` | n/a | yes |
 | <a name="input_custom_rules"></a> [custom\_rules](#input\_custom\_rules) | n/a | <pre>list(object({<br>    source    = string<br>    status    = string<br>    target    = string<br>    condition = string<br>  }))</pre> | n/a | yes |
 | <a name="input_db_name"></a> [db\_name](#input\_db\_name) | Created db name | `string` | n/a | yes |
@@ -104,12 +106,15 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="input_monitoring_interval"></a> [monitoring\_interval](#input\_monitoring\_interval) | Monitoring interval | `string` | `"0"` | no |
 | <a name="input_multi_az"></a> [multi\_az](#input\_multi\_az) | multi\_az | `bool` | `false` | no |
 | <a name="input_nat_create"></a> [nat\_create](#input\_nat\_create) | Is create a NAT Gateway? | `bool` | `false` | no |
+| <a name="input_node_type"></a> [node\_type](#input\_node\_type) | Node type | `string` | n/a | yes |
+| <a name="input_num_cache_nodes"></a> [num\_cache\_nodes](#input\_num\_cache\_nodes) | Node count | `string` | n/a | yes |
 | <a name="input_parameter_group_name"></a> [parameter\_group\_name](#input\_parameter\_group\_name) | Parameter group name | `string` | `"default.postgres14"` | no |
 | <a name="input_password"></a> [password](#input\_password) | Password for master username | `string` | n/a | yes |
 | <a name="input_private_subnet_cidrs"></a> [private\_subnet\_cidrs](#input\_private\_subnet\_cidrs) | Public subnet CIDRs | `list(string)` | <pre>[<br>  "192.168.21.0/24",<br>  "192.168.22.0/24"<br>]</pre> | no |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Project name | `string` | n/a | yes |
 | <a name="input_public_subnet_cidrs"></a> [public\_subnet\_cidrs](#input\_public\_subnet\_cidrs) | Public subnet CIDRs | `list(string)` | <pre>[<br>  "192.168.11.0/24",<br>  "192.168.12.0/24"<br>]</pre> | no |
 | <a name="input_publicly_accessible"></a> [publicly\_accessible](#input\_publicly\_accessible) | Publicly accessible | `bool` | `false` | no |
+| <a name="input_redis_port"></a> [redis\_port](#input\_redis\_port) | Redis open port | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | AWS region | `string` | `"eu-central-1"` | no |
 | <a name="input_scan_on_push"></a> [scan\_on\_push](#input\_scan\_on\_push) | n/a | `bool` | `false` | no |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | n/a | `string` | n/a | yes |
@@ -130,6 +135,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 |------|-------------|
 | <a name="output_DNS_backend_server"></a> [DNS\_backend\_server](#output\_DNS\_backend\_server) | DNS for backend\_server |
 | <a name="output_EIP_backend_server"></a> [EIP\_backend\_server](#output\_EIP\_backend\_server) | EIP for backend\_server |
+| <a name="output_Redis"></a> [Redis](#output\_Redis) | n/a |
 | <a name="output_alb_dns"></a> [alb\_dns](#output\_alb\_dns) | The DNS name of the load balancer |
 | <a name="output_amplify_cloud_front_dns_record"></a> [amplify\_cloud\_front\_dns\_record](#output\_amplify\_cloud\_front\_dns\_record) | DNS record for the subdomain |
 | <a name="output_amplify_default_domain"></a> [amplify\_default\_domain](#output\_amplify\_default\_domain) | Default domain for the Amplify app |
