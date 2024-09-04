@@ -15,7 +15,7 @@ jobs:
             ref: main
 
         - name: Generate TF Docs
-          uses: terraform-docs/gh-actions@v1.0.0
+          uses: terraform-docs/gh-actions@v1.2.0
           with:
             working-dir: .
             # recursive: true
