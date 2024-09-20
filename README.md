@@ -18,38 +18,39 @@
 Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for t3.* instances via "user_data"
 
 <!-- BEGIN_TF_DOCS -->
-### Requirements
+## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 
-### Providers
+## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.0 |
 | <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
-### Modules
+## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_amplify"></a> [amplify](#module\_amplify) | git@github.com:Filicipa/terraform_modules.git//aws_amplify | v1.3.0 |
-| <a name="module_certificate_manager"></a> [certificate\_manager](#module\_certificate\_manager) | git@github.com:Filicipa/terraform_modules.git//aws_certificate_manager | v1.3.0 |
-| <a name="module_ebs_volume"></a> [ebs\_volume](#module\_ebs\_volume) | git@github.com:Filicipa/terraform_modules.git//aws_ebs | v1.3.0 |
-| <a name="module_ecs-service"></a> [ecs-service](#module\_ecs-service) | git@github.com:Filicipa/terraform_modules.git//aws_ecs_service | v1.3.0 |
-| <a name="module_ecs-weway-cluster"></a> [ecs-weway-cluster](#module\_ecs-weway-cluster) | git@github.com:Filicipa/terraform_modules.git//aws_inctance | v1.3.0 |
-| <a name="module_elasticache"></a> [elasticache](#module\_elasticache) | git@github.com:Filicipa/terraform_modules.git//aws_elasticache | v1.4.0 |
-| <a name="module_iam_role"></a> [iam\_role](#module\_iam\_role) | git@github.com:Filicipa/terraform_modules.git//aws_iam_role | v1.3.0 |
-| <a name="module_iam_user"></a> [iam\_user](#module\_iam\_user) | git@github.com:Filicipa/terraform_modules.git//aws_iam_user | v1.3.0 |
-| <a name="module_load_balancer"></a> [load\_balancer](#module\_load\_balancer) | git@github.com:Filicipa/terraform_modules.git//aws_loadbalancer | v1.3.0 |
-| <a name="module_rds_postgres"></a> [rds\_postgres](#module\_rds\_postgres) | git@github.com:Filicipa/terraform_modules.git//aws_rds | v1.3.0 |
-| <a name="module_task-definition"></a> [task-definition](#module\_task-definition) | git@github.com:Filicipa/terraform_modules.git//aws_task_definition | v1.3.0 |
-| <a name="module_test_server"></a> [test\_server](#module\_test\_server) | git@github.com:Filicipa/terraform_modules.git//aws_inctance | v1.3.0 |
-| <a name="module_vpc"></a> [vpc](#module\_vpc) | git@github.com:Filicipa/terraform_modules.git//aws_vpc | v1.3.0 |
+| <a name="module_amplify"></a> [amplify](#module\_amplify) | git@github.com:Filicipa/terraform_modules.git//aws_amplify | v1.5.0 |
+| <a name="module_certificate_manager"></a> [certificate\_manager](#module\_certificate\_manager) | git@github.com:Filicipa/terraform_modules.git//aws_certificate_manager | v1.5.0 |
+| <a name="module_ebs_volume"></a> [ebs\_volume](#module\_ebs\_volume) | git@github.com:Filicipa/terraform_modules.git//aws_ebs | v1.5.0 |
+| <a name="module_ecr-repo"></a> [ecr-repo](#module\_ecr-repo) | git@github.com:filatov0120/terraform_modules.git//aws_ecr | v1.5.0 |
+| <a name="module_ecs-service"></a> [ecs-service](#module\_ecs-service) | git@github.com:Filicipa/terraform_modules.git//aws_ecs_service | v1.5.0 |
+| <a name="module_ecs-weway-cluster"></a> [ecs-weway-cluster](#module\_ecs-weway-cluster) | git@github.com:Filicipa/terraform_modules.git//aws_inctance | v1.5.0 |
+| <a name="module_elasticache"></a> [elasticache](#module\_elasticache) | git@github.com:Filicipa/terraform_modules.git//aws_elasticache | v1.5.0 |
+| <a name="module_iam_role"></a> [iam\_role](#module\_iam\_role) | git@github.com:Filicipa/terraform_modules.git//aws_iam_role | v1.5.0 |
+| <a name="module_iam_user"></a> [iam\_user](#module\_iam\_user) | git@github.com:Filicipa/terraform_modules.git//aws_iam_user | v1.5.0 |
+| <a name="module_load_balancer"></a> [load\_balancer](#module\_load\_balancer) | git@github.com:Filicipa/terraform_modules.git//aws_loadbalancer | v1.5.0 |
+| <a name="module_rds_postgres"></a> [rds\_postgres](#module\_rds\_postgres) | git@github.com:Filicipa/terraform_modules.git//aws_rds | v1.5.0 |
+| <a name="module_task-definition"></a> [task-definition](#module\_task-definition) | git@github.com:Filicipa/terraform_modules.git//aws_task_definition | v1.5.0 |
+| <a name="module_test_server"></a> [test\_server](#module\_test\_server) | git@github.com:Filicipa/terraform_modules.git//aws_inctance | v1.5.0 |
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | git@github.com:Filicipa/terraform_modules.git//aws_vpc | v1.5.0 |
 
-### Resources
+## Resources
 
 | Name | Type |
 |------|------|
@@ -57,7 +58,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | [aws_availability_zones.available](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) | data source |
 | [terraform_remote_state.shared](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
-### Inputs
+## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -74,7 +75,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="input_cidr_vpc"></a> [cidr\_vpc](#input\_cidr\_vpc) | CIDR block for VPC | `string` | `"192.168.0.0/16"` | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Created cluster name | `string` | n/a | yes |
 | <a name="input_cpu"></a> [cpu](#input\_cpu) | n/a | `number` | n/a | yes |
-| <a name="input_custom_rules"></a> [custom\_rules](#input\_custom\_rules) | n/a | <pre>list(object({<br>    source    = string<br>    status    = string<br>    target    = string<br>    condition = string<br>  }))</pre> | n/a | yes |
+| <a name="input_custom_rules"></a> [custom\_rules](#input\_custom\_rules) | n/a | <pre>list(object({<br/>    source    = string<br/>    status    = string<br/>    target    = string<br/>    condition = string<br/>  }))</pre> | n/a | yes |
 | <a name="input_db_name"></a> [db\_name](#input\_db\_name) | Created db name | `string` | n/a | yes |
 | <a name="input_db_port"></a> [db\_port](#input\_db\_port) | DB open port | `string` | n/a | yes |
 | <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | Deletion protection | `bool` | `false` | no |
@@ -82,8 +83,8 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="input_dns_prefix_branch"></a> [dns\_prefix\_branch](#input\_dns\_prefix\_branch) | n/a | `string` | n/a | yes |
 | <a name="input_ebs_name"></a> [ebs\_name](#input\_ebs\_name) | EBS name | `string` | `"/dev/sdf"` | no |
 | <a name="input_ecr_repository_name"></a> [ecr\_repository\_name](#input\_ecr\_repository\_name) | n/a | `string` | n/a | yes |
-| <a name="input_engine"></a> [engine](#input\_engine) | Engine type | `string` | `"postgres"` | no |
-| <a name="input_engine_version"></a> [engine\_version](#input\_engine\_version) | Engine\_version | `string` | `"14.8"` | no |
+| <a name="input_engine"></a> [engine](#input\_engine) | Cluster engine | `string` | `"redis"` | no |
+| <a name="input_engine_version"></a> [engine\_version](#input\_engine\_version) | Engine version | `string` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | Environment | `string` | `"dev"` | no |
 | <a name="input_force_delete"></a> [force\_delete](#input\_force\_delete) | n/a | `bool` | n/a | yes |
 | <a name="input_framework"></a> [framework](#input\_framework) | n/a | `string` | n/a | yes |
@@ -101,7 +102,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="input_instance_class"></a> [instance\_class](#input\_instance\_class) | Instance\_class | `string` | `"db.t4g.micro"` | no |
 | <a name="input_loadbalancer_name"></a> [loadbalancer\_name](#input\_loadbalancer\_name) | n/a | `string` | n/a | yes |
 | <a name="input_loadbalancer_type"></a> [loadbalancer\_type](#input\_loadbalancer\_type) | n/a | `string` | n/a | yes |
-| <a name="input_max_allocated_storage"></a> [max\_allocated\_storage](#input\_max\_allocated\_storage) | Autoscale stogage amount | `string` | `"0"` | no |
+| <a name="input_max_allocated_storage"></a> [max\_allocated\_storage](#input\_max\_allocated\_storage) | Autoscale storage amount | `string` | `"0"` | no |
 | <a name="input_memory"></a> [memory](#input\_memory) | n/a | `number` | n/a | yes |
 | <a name="input_monitoring_interval"></a> [monitoring\_interval](#input\_monitoring\_interval) | Monitoring interval | `string` | `"0"` | no |
 | <a name="input_multi_az"></a> [multi\_az](#input\_multi\_az) | multi\_az | `bool` | `false` | no |
@@ -110,10 +111,12 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="input_num_cache_nodes"></a> [num\_cache\_nodes](#input\_num\_cache\_nodes) | Node count | `string` | n/a | yes |
 | <a name="input_parameter_group_name"></a> [parameter\_group\_name](#input\_parameter\_group\_name) | Parameter group name | `string` | `"default.postgres14"` | no |
 | <a name="input_password"></a> [password](#input\_password) | Password for master username | `string` | n/a | yes |
-| <a name="input_private_subnet_cidrs"></a> [private\_subnet\_cidrs](#input\_private\_subnet\_cidrs) | Public subnet CIDRs | `list(string)` | <pre>[<br>  "192.168.21.0/24",<br>  "192.168.22.0/24"<br>]</pre> | no |
+| <a name="input_private_subnet_cidrs"></a> [private\_subnet\_cidrs](#input\_private\_subnet\_cidrs) | Public subnet CIDRs | `list(string)` | <pre>[<br/>  "192.168.21.0/24",<br/>  "192.168.22.0/24"<br/>]</pre> | no |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Project name | `string` | n/a | yes |
-| <a name="input_public_subnet_cidrs"></a> [public\_subnet\_cidrs](#input\_public\_subnet\_cidrs) | Public subnet CIDRs | `list(string)` | <pre>[<br>  "192.168.11.0/24",<br>  "192.168.12.0/24"<br>]</pre> | no |
+| <a name="input_public_subnet_cidrs"></a> [public\_subnet\_cidrs](#input\_public\_subnet\_cidrs) | Public subnet CIDRs | `list(string)` | <pre>[<br/>  "192.168.11.0/24",<br/>  "192.168.12.0/24"<br/>]</pre> | no |
 | <a name="input_publicly_accessible"></a> [publicly\_accessible](#input\_publicly\_accessible) | Publicly accessible | `bool` | `false` | no |
+| <a name="input_rds_engine"></a> [rds\_engine](#input\_rds\_engine) | Engine type | `string` | `"postgres"` | no |
+| <a name="input_rds_engine_version"></a> [rds\_engine\_version](#input\_rds\_engine\_version) | Engine\_version | `string` | `"14.8"` | no |
 | <a name="input_redis_port"></a> [redis\_port](#input\_redis\_port) | Redis open port | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | AWS region | `string` | `"eu-central-1"` | no |
 | <a name="input_scan_on_push"></a> [scan\_on\_push](#input\_scan\_on\_push) | n/a | `bool` | `false` | no |
@@ -129,7 +132,7 @@ Added bash scripts for install docker, mongoDB and auto mount AWS Ebs volume for
 | <a name="input_username"></a> [username](#input\_username) | Master username | `string` | n/a | yes |
 | <a name="input_validation_method"></a> [validation\_method](#input\_validation\_method) | n/a | `string` | `"DNS"` | no |
 
-### Outputs
+## Outputs
 
 | Name | Description |
 |------|-------------|
