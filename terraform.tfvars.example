@@ -18,9 +18,10 @@ backend_domain_name = "*.example.com"
 validation_method   = "DNS"
 
 #### ECR vars
-ecr_repository_name  = "backend"
+ecr_repository_name  = ["backend","ui", "frontend"]
 image_tag_mutability = "MUTABLE"
 force_delete         = false
+image_count = 5
 
 #### IAM
 iam_user = "iam_user"

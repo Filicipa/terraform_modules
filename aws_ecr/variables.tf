@@ -12,7 +12,7 @@ variable "env" {
 }
 
 variable "repository_name" {
-  type = string
+  type = list(string)
 }
 
 variable "image_tag_mutability" {
@@ -24,4 +24,10 @@ variable "force_delete" {
   description = "If true, will delete repository with containers"
   type        = bool
   default     = false
+}
+
+variable "image_count" {
+  description = "Image count for lifecycle policy"
+  type = number
+  default = 5
 }

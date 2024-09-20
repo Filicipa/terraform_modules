@@ -34,18 +34,18 @@ variable "allocated_storage" {
 }
 
 variable "max_allocated_storage" {
-  description = "Autoscale stogage amount"
+  description = "Autoscale storage amount"
   type        = string
   default     = "0"
 }
 
-variable "engine" {
+variable "rds_engine" {
   description = "Engine type"
   type        = string
   default     = "postgres"
 }
 
-variable "engine_version" {
+variable "rds_engine_version" {
   description = "Engine_version"
   type        = string
   default     = "14.8"

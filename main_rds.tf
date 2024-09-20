@@ -1,5 +1,5 @@
 module "rds_postgres" {
-  source                      = "git@github.com:Filicipa/terraform_modules.git//aws_rds?ref=v1.3.0"
+  source                      = "git@github.com:Filicipa/terraform_modules.git//aws_rds?ref=v1.5.0"
   apply_immediately           = var.apply_immediately
   multi_az                    = var.multi_az
   cidr_vpc                    = var.cidr_vpc
@@ -9,8 +9,8 @@ module "rds_postgres" {
   allow_major_version_upgrade = var.allow_major_version_upgrade
   backup_retention_period     = var.backup_retention_period
   deletion_protection         = var.deletion_protection
-  engine                      = var.engine
-  engine_version              = var.engine_version
+  engine                      = var.rds_engine
+  engine_version              = var.rds_engine_version
   instance_class              = var.instance_class
   publicly_accessible         = var.publicly_accessible
   skip_final_snapshot         = var.skip_final_snapshot

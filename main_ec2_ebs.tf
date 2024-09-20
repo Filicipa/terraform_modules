@@ -1,5 +1,5 @@
 module "test_server" {
-  source           = "git@github.com:Filicipa/terraform_modules.git//aws_inctance?ref=v1.3.0"
+  source           = "git@github.com:Filicipa/terraform_modules.git//aws_inctance?ref=v1.5.0"
   depends_on       = [module.vpc]
   ami              = data.aws_ami.ubuntu_server.id
   azs              = element(data.aws_availability_zones.available.names, 0)
@@ -25,7 +25,7 @@ module "test_server" {
 }
 
 module "ebs_volume" {
-  source        = "git@github.com:Filicipa/terraform_modules.git//aws_ebs?ref=v1.3.0"
+  source        = "git@github.com:Filicipa/terraform_modules.git//aws_ebs?ref=v1.5.0"
   azs           = element(data.aws_availability_zones.available.names, 0)
   size          = 10
   type          = "gp3"

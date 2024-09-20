@@ -1,5 +1,5 @@
 module "load_balancer" {
-  source             = "git@github.com:Filicipa/terraform_modules.git//aws_loadbalancer?ref=v1.3.0"
+  source             = "git@github.com:Filicipa/terraform_modules.git//aws_loadbalancer?ref=v1.5.0"
   loadbalancer_name  = var.loadbalancer_name
   loadbalancer_type  = var.loadbalancer_type
   internal           = false

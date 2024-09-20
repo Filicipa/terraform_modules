@@ -1,5 +1,5 @@
 module "amplify" {
-  source                = "git@github.com:Filicipa/terraform_modules.git//aws_amplify?ref=v1.3.0"
+  source                = "git@github.com:Filicipa/terraform_modules.git//aws_amplify?ref=v1.5.0"
   repository            = var.github_repository
   access_token          = var.access_token
   app_name              = var.app_name
