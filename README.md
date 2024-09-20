@@ -1,4 +1,4 @@
-# Terraform modules ![GitHub Release](https://img.shields.io/github/v/release/Filicipa/terraform_modules)
+# Terraform modules ![GitHub Tag](https://img.shields.io/github/v/tag/Filicipa/terraform_modules) ![GitHub Release Date](https://img.shields.io/github/release-date/filicipa/terraform_modules)
 
 1. EC2 instance with security group and with EIP 
 2. EC2 instance with security group and without EIP
