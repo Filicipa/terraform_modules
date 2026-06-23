@@ -11,8 +11,8 @@ variable "env" {
   type = string
 }
 
-variable "repository_name" {
-  type = list(string)
+variable "repository_names" {
+  type = set(string)
 }
 
 variable "image_tag_mutability" {
@@ -28,6 +28,6 @@ variable "force_delete" {
 
 variable "image_count" {
   description = "Image count for lifecycle policy"
-  type = number
-  default = 5
+  type        = number
+  default     = 3
 }
