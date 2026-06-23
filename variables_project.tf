@@ -14,3 +14,14 @@ variable "env" {
   type        = string
   default     = "dev"
 }
+
+variable "cloudflare_api_token" {
+  description = "Cloudflare api token"
+  type        = string
+}
+
+variable "cloudflare_zone_id" {
+  description = "Cloudflare zone id"
+  type        = string
+  default     = "zone_id"
+}
