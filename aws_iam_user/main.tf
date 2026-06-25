@@ -7,24 +7,10 @@ resource "aws_iam_user" "this" {
     Terraform   = true
   }
 }
-
 resource "aws_iam_user_policy" "this_policy" {
-  name = "ecr-push-policy"
-  user = aws_iam_user.this.name
+  count = var.policy_json != null ? 1 : 0
 
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [{
-      Effect = "Allow",
-      Action = [
-        "ecr:CompleteLayerUpload",
-        "ecr:GetAuthorizationToken",
-        "ecr:UploadLayerPart",
-        "ecr:InitiateLayerUpload",
-        "ecr:BatchCheckLayerAvailability",
-        "ecr:PutImage"
-      ],
-      Resource = "*"
-    }]
-  })
+  name = var.policy_name
+  user = aws_iam_user.this.name
+  policy = var.policy_json
 }

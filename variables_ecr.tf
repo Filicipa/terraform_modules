@@ -1,16 +1,20 @@
 variable "ecr_repository_name" {
-  type = string
+  description = "Set of repository names to create in ECR"
+  type        = set(string)
 }
 
 variable "scan_on_push" {
-  type    = bool
-  default = false
+  description = "Indicates whether images are scanned for vulnerabilities after being pushed to the repository"
+  type        = bool
+  default     = false
 }
 
 variable "image_tag_mutability" {
-  type = string
+  description = "The tag mutability setting for the repository (MUTABLE or IMMUTABLE)"
+  type        = string
 }
 
 variable "force_delete" {
-  type = bool
+  description = "If true, will delete the repository even if it contains images"
+  type        = bool
 }

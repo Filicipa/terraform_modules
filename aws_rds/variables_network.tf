@@ -15,5 +15,5 @@ variable "subnet_ids" {
 
 variable "db_port" {
   description = "DB open port"
-  type        = string
+  type        = number
 }

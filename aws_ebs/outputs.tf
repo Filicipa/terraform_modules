@@ -1,4 +1,4 @@
 output "storage_id" {
-  description = "Storege ID"
+  description = "Storage ID"
   value       = aws_ebs_volume.this.id
 }

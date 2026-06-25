@@ -1,4 +1,4 @@
-resource "aws_ecs_service" "weway-backend" {
+resource "aws_ecs_service" "this" {
   name            = var.name
   cluster         = var.ecs_cluster_id
   task_definition = var.ecs_task_definition_arn
@@ -9,7 +9,7 @@ resource "aws_ecs_service" "weway-backend" {
   load_balancer {
     container_name   = var.container_name
     container_port   = var.container_port
-    target_group_arn = var.target_group_arns
+    target_group_arn = var.target_group_arn
   }
 
   network_configuration {

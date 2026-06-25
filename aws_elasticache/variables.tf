@@ -1,5 +1,6 @@
 variable "project_name" {
   description = "Project name"
+  type        = string
   validation {
     condition     = length(var.project_name) > 3
     error_message = "The project_name value must be set and more than 3 symbols."
@@ -39,7 +40,7 @@ variable "subnet_ids" {
 
 variable "redis_port" {
   description = "Redis open port"
-  type        = string
+  type        = number
 }
 
 variable "engine_version" {
@@ -54,7 +55,7 @@ variable "node_type" {
 
 variable "num_cache_nodes" {
   description = "Node count"
-  type        = string
+  type        = number
 }
 
 variable "parameter_group_name" {

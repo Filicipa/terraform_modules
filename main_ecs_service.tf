@@ -12,5 +12,5 @@ module "ecs-service" {
   cidr_vpc                = data.terraform_remote_state.shared.outputs.cidr_vpc
   vpc_id                  = data.terraform_remote_state.shared.outputs.vpc_id
   public_subnet_ids       = data.terraform_remote_state.shared.outputs.public_subnet_ids
-  target_group_arns       = module.load_balancer.target_group_arn
+  target_group_arn        = module.load_balancer.target_group_arn
 }

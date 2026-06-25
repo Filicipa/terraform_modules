@@ -24,7 +24,7 @@ resource "aws_elasticache_subnet_group" "this" {
 
   tags = {
     Name        = "${var.project_name}-${var.env}"
-    Project     = var.project_name,
+    Project     = var.project_name
     Environment = var.env
     Terraform   = true
   }

@@ -8,7 +8,7 @@ resource "aws_security_group" "this" {
 
   tags = {
     Name        = "${var.project_name}-${var.env}-sg"
-    Project     = var.project_name,
+    Project     = var.project_name
     Environment = var.env
     Terraform   = true
   }

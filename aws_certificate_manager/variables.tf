@@ -1,9 +1,12 @@
 variable "project_name" {
-  type = string
+  description = "Project name"
+  type        = string
 }
 
 variable "env" {
-  type = string
+  description = "Environment"
+  type        = string
+  default     = "dev"
 }
 
 variable "validation_method" {
@@ -15,4 +18,10 @@ variable "validation_method" {
 variable "domain_name" {
   description = "Domain name for which the certificate should be issued"
   type        = string
+}
+
+variable "subject_alternative_names" {
+  description = "List of additionals domain names (SANs) for certificate"
+  type        = list(string)
+  default     = []
 }

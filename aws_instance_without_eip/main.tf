@@ -1,14 +1,15 @@
 resource "aws_instance" "this" {
   instance_type          = var.instance_type
   ami                    = var.ami
-  availability_zone      = var.azs
+  iam_instance_profile   = var.instance_profile
+  availability_zone      = var.availability_zone
   vpc_security_group_ids = [aws_security_group.this.id]
   subnet_id              = var.subnet_id
   key_name               = var.ssh_key
   user_data              = var.user_data
 
   lifecycle {
-    ignore_changes = [user_data]
+    ignore_changes = [user_data, ami]
   }
 
   root_block_device {
@@ -18,7 +19,7 @@ resource "aws_instance" "this" {
 
   tags = {
     Name        = "${var.project_name}-${var.env}-${var.instance_name}"
-    Project     = var.project_name,
+    Project     = var.project_name
     Environment = var.env
     Terraform   = true
   }

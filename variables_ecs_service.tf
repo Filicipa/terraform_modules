@@ -1,7 +1,9 @@
 variable "service_name" {
-  type = string
+  description = "Name of the ECS service"
+  type        = string
 }
 
 variable "desired_count" {
-  type = number
+  description = "Desired number of simultaneously running tasks (containers)"
+  type        = number
 }

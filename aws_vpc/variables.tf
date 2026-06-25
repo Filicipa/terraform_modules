@@ -4,7 +4,7 @@ variable "region" {
   default     = "eu-central-1"
 }
 
-variable "azs" {
+variable "availability_zone" {
   type        = list(string)
   description = "Availability Zones list"
 }

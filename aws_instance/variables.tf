@@ -2,7 +2,7 @@ variable "region" {
   default = "eu-central-1"
 }
 
-variable "azs" {
+variable "availability_zone" {
   description = "Availability Zones list"
   type        = string
 }
@@ -27,7 +27,7 @@ variable "instance_type" {
   type        = string
   validation {
     condition     = length(var.instance_type) > 0
-    error_message = "The project_name value must be."
+    error_message = "The instance_type value must be set."
   }
 }
 
@@ -62,34 +62,34 @@ variable "subnet_id" {
   description = "Subnet ID for instance"
 }
 
+variable "tcp_port_ranges" {
+  description = "List of TCP port ranges"
+  type = list(object({
+    from = number
+    to   = number
+  }))
+  default = []
+}
+
+variable "udp_port_ranges" {
+  description = "List of UDP port ranges"
+  type = list(object({
+    from = number
+    to   = number
+  }))
+  default = []
+}
+
 variable "allow_tcp_ports" {
-  description = "List of ports to open for server"
-  type        = list(string)
+  description = "List of individual TCP ports to open"
+  type        = list(number)
+  default     = []
 }
 
 variable "allow_udp_ports" {
-  description = "List of ports to open for server"
-  type        = list(string)
-}
-
-variable "start_tcp_ports" {
-  description = "List of ports to open for server"
-  type        = list(string)
-}
-
-variable "end_tcp_ports" {
-  description = "List of ports to open for server"
-  type        = list(string)
-}
-
-variable "start_udp_ports" {
-  description = "List of ports to open for server"
-  type        = list(string)
-}
-
-variable "end_udp_ports" {
-  description = "List of ports to open for server"
-  type        = list(string)
+  description = "List of individual UDP ports to open"
+  type        = list(number)
+  default     = []
 }
 
 variable "project_name" {
@@ -107,4 +107,6 @@ variable "env" {
 
 variable "user_data" {
   description = "User data for instance"
+  type        = string
+  default     = null
 }

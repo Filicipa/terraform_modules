@@ -8,7 +8,7 @@ resource "aws_iam_role" "this" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          Service = "ecs-tasks.amazonaws.com"
+          Service = var.assume_role_principal
         }
       },
     ]
@@ -22,7 +22,8 @@ resource "aws_iam_role" "this" {
   }
 }
 
-resource "aws_iam_role_policy_attachment" "ecs_attachment" {
+resource "aws_iam_role_policy_attachment" "this" {
+  count      = length(var.policy_arns)
   role       = aws_iam_role.this.name
-  policy_arn = var.policy_arn
+  policy_arn = var.policy_arns[count.index]
 }

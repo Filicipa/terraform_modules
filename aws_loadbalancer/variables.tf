@@ -1,97 +1,110 @@
 variable "project_name" {
-  type = string
+  description = "The name of the project used for tagging resources"
+  type        = string
 }
 
 variable "env" {
-  type = string
-}
-
-variable "cidr_vpc" {
-  type = string
+  description = "The deployment environment (e.g., dev, stage, prod)"
+  type        = string
 }
 
 variable "vpc_id" {
-  description = "The vpc id for the target group"
+  description = "The ID of the VPC where the target group will be created"
+  type        = string
 }
 
 variable "certificate_arn" {
-  description = "ARN of the default SSL server certificate"
+  description = "ARN of the default SSL server certificate for HTTPS listener"
   type        = string
 }
 
 variable "subnet_ids" {
-  type = list(string)
+  description = "A list of subnet IDs to attach to the load balancer"
+  type        = list(string)
 }
 
 variable "loadbalancer_name" {
-  type = string
+  description = "The name of the load balancer"
+  type        = string
 }
 
 variable "loadbalancer_type" {
-  description = "Possible values are application, gateway, or network"
+  description = "Type of load balancer: application, gateway, or network"
   type        = string
   default     = "application"
 }
 
 variable "internal" {
-  type = bool
+  description = "If true, the load balancer will be internal (not accessible from the internet)"
+  type        = bool
+  default     = false
 }
 
 variable "listener_protocol" {
+  description = "The protocol for the main listener (e.g., HTTPS)"
   type        = string
-  description = "The protocol for the listener"
   default     = "HTTPS"
 }
 
 variable "listener_port" {
+  description = "The port for the main listener"
   type        = number
-  description = "The port for the listener"
   default     = 443
 }
 
 variable "tg_protocol" {
-  type = string
+  description = "The protocol to use for routing traffic to the targets"
+  type        = string
+  default     = "HTTP"
 }
 
 variable "target_type" {
-  description = "Type of target group instance or ip"
-  default     = "instance"
+  description = "Type of target that you must specify when registering targets with this target group (instance or ip)"
   type        = string
+  default     = "instance"
 }
 
 variable "tg_port" {
-  type = string
+  description = "The port on which targets receive traffic"
+  type        = number
 }
 
 variable "target_group_name" {
-  description = "The name for the target group"
+  description = "The name of the target group"
+  type        = string
 }
 
 variable "health_check_path" {
-  description = "The health check path"
+  description = "The destination path for the health check"
+  type        = string
   default     = "/api/health"
 }
 
 variable "health_check_timeout" {
-  description = "The health check timeout"
+  description = "The amount of time, in seconds, during which no response means a failed health check"
+  type        = number
   default     = 5
 }
 
 variable "health_check_interval" {
-  description = "The health check interval"
+  description = "The approximate amount of time, in seconds, between health checks of an individual target"
+  type        = number
   default     = 30
 }
 
 variable "healthy_threshold" {
-  description = "The healthy threshold"
+  description = "The number of consecutive successful health checks required before considering an unhealthy target healthy"
+  type        = number
   default     = 2
 }
 
 variable "unhealthy_threshold" {
-  description = "The unhealthy threshold"
+  description = "The number of consecutive failed health checks required before considering a target unhealthy"
+  type        = number
   default     = 2
 }
 
 variable "sg_allow_tcp_ports" {
-  type = list(string)
+  description = "A list of TCP ports to allow inbound traffic to the load balancer"
+  type        = list(number)
 }

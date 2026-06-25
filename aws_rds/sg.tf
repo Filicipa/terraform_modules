@@ -9,7 +9,7 @@ resource "aws_security_group" "this" {
 
   tags = {
     Name        = "${var.project_name}-${var.env}-rds-sg"
-    Project     = var.project_name,
+    Project     = var.project_name
     Environment = var.env
     Terraform   = true
   }
@@ -32,5 +32,5 @@ resource "aws_security_group_rule" "access_to_anywhere" {
   from_port         = 0
   to_port           = 0
   protocol          = "all"
-  cidr_blocks       = [var.cidr_vpc]
+  cidr_blocks       = ["0.0.0.0/0"]
 }

@@ -1,5 +1,5 @@
-variable "azs" {
-  description = "Availability Zones list"
+variable "availability_zone" {
+  description = "Availability Zone for EBS"
   type        = string
 }
 
@@ -18,17 +18,19 @@ variable "project_name" {
 }
 
 variable "instance_name" {
-  description = "Name of project"
+  description = "Name of instance"
   type        = string
 }
 
 variable "type" {
   description = "Type of storage"
+  type        = string
+  default     = "gp3"
 }
 
 variable "size" {
   description = "Storage size"
-  type        = string
+  type        = number
 }
 
 variable "instance_id" {

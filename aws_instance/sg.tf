@@ -9,7 +9,7 @@ resource "aws_security_group" "this" {
 
   tags = {
     Name        = "${var.project_name}-${var.env}-sg"
-    Project     = var.project_name,
+    Project     = var.project_name
     Environment = var.env
     Terraform   = true
   }
@@ -40,9 +40,9 @@ resource "aws_security_group_rule" "access_udp_from_internet" {
 resource "aws_security_group_rule" "access_tcp_range_from_internet" {
   security_group_id = aws_security_group.this.id
   type              = "ingress"
-  count             = length(var.start_tcp_ports)
-  from_port         = element(var.start_tcp_ports, count.index)
-  to_port           = element(var.end_tcp_ports, count.index)
+  count             = length(var.tcp_port_ranges)
+  from_port         = var.tcp_port_ranges[count.index].from
+  to_port           = var.tcp_port_ranges[count.index].to
   description       = "Allow from internet to tcp port range"
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
@@ -51,10 +51,10 @@ resource "aws_security_group_rule" "access_tcp_range_from_internet" {
 resource "aws_security_group_rule" "access_udp_range_from_internet" {
   security_group_id = aws_security_group.this.id
   type              = "ingress"
-  count             = length(var.start_udp_ports)
-  from_port         = element(var.start_udp_ports, count.index)
-  to_port           = element(var.end_udp_ports, count.index)
-  description       = "Allow from internet to tcp port range"
+  count             = length(var.udp_port_ranges)
+  from_port         = var.udp_port_ranges[count.index].from
+  to_port           = var.udp_port_ranges[count.index].to
+  description       = "Allow from internet to udp port range"
   protocol          = "udp"
   cidr_blocks       = ["0.0.0.0/0"]
 }

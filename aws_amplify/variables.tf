@@ -1,11 +1,7 @@
-variable "region" {
-  description = "AWS Region"
-  type        = string
-}
-
 variable "access_token" {
   description = "Personal access token for repository"
   type        = string
+  sensitive   = true 
 }
 
 variable "repository" {

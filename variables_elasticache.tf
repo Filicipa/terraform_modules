@@ -22,7 +22,7 @@ variable "node_type" {
 
 variable "num_cache_nodes" {
   description = "Node count"
-  type        = string
+  type        = number
 }
 
 variable "parameter_group_name" {
@@ -32,5 +32,5 @@ variable "parameter_group_name" {
 
 variable "redis_port" {
   description = "Redis open port"
-  type        = string
+  type        = number
 }

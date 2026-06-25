@@ -29,13 +29,13 @@ variable "storage_type" {
 
 variable "allocated_storage" {
   description = "Storage amount GB"
-  type        = string
+  type        = number
   default     = "20"
 }
 
 variable "max_allocated_storage" {
   description = "Autoscale stogage amount"
-  type        = string
+  type        = number
   default     = "0"
 }
 
@@ -65,13 +65,13 @@ variable "parameter_group_name" {
 
 variable "monitoring_interval" {
   description = "Monitoring interval"
-  type        = string
+  type        = number
   default     = "0"
 }
 
 variable "backup_retention_period" {
   description = "Backup retention period"
-  type        = string
+  type        = number
   default     = "3"
 }
 

@@ -13,26 +13,7 @@ variable "ebs_name" {
   default     = "/dev/sdf"
 }
 
-variable "inst1_name" {
-  description = "Name for instances"
-  type        = string
-  default     = "test"
-}
-
-variable "inst2_name" {
-  description = "Name for instances"
-  type        = string
-  default     = ""
-}
-
-variable "inst3_name" {
-  description = "Name for instances"
-  type        = string
-  default     = ""
-}
-
-variable "inst4_name" {
-  description = "Name for instances"
-  type        = string
-  default     = ""
-}
+variable "instance_names" { 
+  type = list(string) 
+  default = ["test", "dev", "stage"] 
+  }

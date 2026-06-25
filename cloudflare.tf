@@ -4,6 +4,6 @@ resource "cloudflare_dns_record" "example" {
   ttl     = 1
   type    = "A"
   comment = "evm-stage"
-  content = digitalocean_droplet.mm-front["stage"].ipv4_address
+  content = module.test_server.elastic_ip
   proxied = false
 }

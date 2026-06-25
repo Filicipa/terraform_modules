@@ -4,7 +4,7 @@ project_name = "new-vpc"
 env          = "test"
 
 #### VPC vars
-nat_create = "false"
+nat_create = false
 
 #### RDS vars
 db_port             = "5432" #for postgres

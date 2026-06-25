@@ -1,16 +1,16 @@
 output "vpc_id" {
   description = "VPC id"
-  value       = module.vpc-terraform.vpc_id
+  value       = module.vpc.vpc_id
 }
 
 output "vpc_cidr" {
   description = "VPC CIDR"
-  value       = module.vpc-terraform.vpc_cidr
+  value       = module.vpc.vpc_cidr
 }
 
 output "public_subnet_ids" {
   description = "Prublic subnet IDs"
-  value       = module.vpc-terraform.public_subnet_ids
+  value       = module.vpc.public_subnet_ids
 }
 
 output "EIP_backend_server" {
@@ -25,8 +25,13 @@ output "DNS_backend_server" {
 
 output "ecr_url" {
   description = "The URL of the repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName)"
-  value       = data.terraform_remote_state.shared.outputs.ecr_url
+  value       = module.ecr-repo.repository_urls
 }
+
+# output "ecr_url" {
+#   description = "The URL of the repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName)"
+#   value       = data.terraform_remote_state.shared.outputs.ecr_url
+# }
 
 output "alb_dns" {
   description = "The DNS name of the load balancer"

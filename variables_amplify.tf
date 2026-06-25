@@ -1,47 +1,45 @@
-variable "access_token" {
-  sensitive   = true
-  description = "GitHub access_token"
-  type        = string
-}
-
-variable "github_repository" {
-  description = "GitHub repositoty URL"
-  type        = string
-}
-
 variable "app_name" {
-  type = string
+  description = "Name of the application in AWS Amplify"
+  type        = string
 }
 
 variable "branch_name" {
-  type = string
+  description = "Repository branch name for deployment (e.g., develop)"
+  type        = string
 }
 
 variable "framework" {
-  type = string
+  description = "Frontend framework used (e.g., Next.js - SSR)"
+  type        = string
 }
 
 variable "stage" {
-  type = string
+  description = "Deployment stage (e.g., PRODUCTION or DEVELOPMENT)"
+  type        = string
 }
 
 variable "frontend_environment_variables" {
-  type = map(string)
+  description = "Map of environment variables for the frontend application"
+  type        = map(string)
 }
 
 variable "frontend_domain_name" {
-  type = string
+  description = "Main domain name for the frontend"
+  type        = string
 }
 
 variable "dns_prefix_branch" {
-  type = string
+  description = "Subdomain prefix for a specific branch (leave empty for root domain)"
+  type        = string
 }
 
 variable "build_spec" {
-  type = string
+  description = "YAML specification for application build stages (buildspec)"
+  type        = string
 }
 
 variable "custom_rules" {
+  description = "Custom routing and redirect rules (e.g., for SPA)"
   type = list(object({
     source    = string
     status    = string

@@ -1,5 +1,5 @@
 resource "aws_ebs_volume" "this" {
-  availability_zone = var.azs
+  availability_zone = var.availability_zone
   size              = var.size
   type              = var.type
 
@@ -12,7 +12,8 @@ resource "aws_ebs_volume" "this" {
 }
 
 resource "aws_volume_attachment" "ebs_att" {
-  device_name = var.device_path
-  volume_id   = aws_ebs_volume.this.id
-  instance_id = var.instance_id
+  device_name   = var.device_path
+  volume_id     = aws_ebs_volume.this.id
+  instance_id   = var.instance_id
+  force_detach  = true
 }
